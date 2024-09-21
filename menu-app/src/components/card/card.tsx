@@ -16,7 +16,7 @@ export function Card({ price, image, title, onDelete, onEdit }: CardProps) {
             <p><b>Preço: </b>{price}</p>
             <div className="card-buttons">
                 <button className="edit-button" onClick={onEdit}>E</button>
-                {/* <button className="delete-button" onClick={onDelete}>X</button> */}
+                <button className="delete-button" onClick={onDelete}>X</button>
             </div>
         </div>
     )
