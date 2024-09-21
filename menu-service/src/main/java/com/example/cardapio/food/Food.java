@@ -27,4 +27,10 @@ public class Food {
         this.price = data.price();
         this.title = data.title();
     }
+
+    public void update(FoodRequestDTO data) {
+        this.title = data.title();
+        this.image = data.image();
+        this.price = data.price();
+    }
 }

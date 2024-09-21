@@ -32,4 +32,19 @@ public class FoodController {
         return foodList;
 
     }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PutMapping("/{id}")
+    public void updateFood(@PathVariable Long id, @RequestBody FoodRequestDTO data) {
+        Food foodData = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Food not found"));
+        foodData.update(data);
+        repository.save(foodData);
+    }
+
 }

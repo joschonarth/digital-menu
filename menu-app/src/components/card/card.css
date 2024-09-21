@@ -7,10 +7,44 @@
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 0;
+    position: relative; /* Para que os botões sejam posicionados em relação ao card */
 }
 
 .card img {
     border-radius: 8px 8px 0 0;
     width: 250px;
     height: 200px;
+}
+
+.card-buttons {
+    position: absolute; /* Posiciona os botões de forma absoluta */
+    top: 10px; /* Distância do topo */
+    width: 100%; /* Para que os botões se espalhem pela largura do card */
+    display: flex;
+    justify-content: space-between; /* Para posicionar os botões nas extremidades */
+}
+
+.edit-button,
+.delete-button {
+    background-color: #61ffca; /* Cor de fundo do botão de editar */
+    color: #000; /* Cor do texto */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 8px; /* Diminuindo o padding */
+    font-size: 14px; /* Diminui o tamanho da fonte */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #4ed3a1; /* Cor ao passar o mouse */
+}
+
+.delete-button {
+    background-color: #ff4c4c; /* Cor de fundo do botão de deletar */
+    color: #fff; /* Cor do texto */
+}
+
+.delete-button:hover {
+    background-color: #e03e3e; /* Cor ao passar o mouse */
 }

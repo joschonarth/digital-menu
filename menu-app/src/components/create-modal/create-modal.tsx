@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFoodDataMutate } from "../../hooks/useFoodDataMutate";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import "./modal.css";
 
 interface InputProps {
@@ -35,23 +37,37 @@ interface FoodData {
 
 interface ModalProps {
     closeModal(): void;
+    initialData: FoodData | null; // Adicione esta linha
+    onUpdate?: (updatedData: FoodData) => void; // Adicione esta linha
 }
 
-export function CreateModal({ closeModal }: ModalProps) {
+export function CreateModal({ closeModal, initialData, onUpdate }: ModalProps) {
     const [title, setTitle] = useState<string>("");
     const [price, setPrice] = useState<number>(0);
     const [image, setImage] = useState<string>("");
     const { mutate, isSuccess, isLoading } = useFoodDataMutate();
 
-    const submit = () => {
-        const foodData: FoodData = {
-            title,
-            price,
-            image,
-        };
+    useEffect(() => {
+        if (initialData) {
+            setTitle(initialData.title);
+            setPrice(initialData.price);
+            setImage(initialData.image);
+        }
+    }, [initialData]);
 
-        mutate(foodData);
+    const submit = () => {
+    const foodData: FoodData = {
+        title,
+        price,
+        image,
     };
+    
+    if (onUpdate) {
+        onUpdate(foodData); // Chama onUpdate se estamos atualizando
+    } else {
+        mutate(foodData); // Caso contrário, chama mutate para adicionar
+    }
+};
 
     useEffect(() => {
         if (!isSuccess) return;
@@ -61,7 +77,10 @@ export function CreateModal({ closeModal }: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <h2>Cadastre um novo item no cardápio</h2>
+                <button className="close-button" onClick={closeModal}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </button>
+                <h2>{initialData ? "Editar Item" : "Cadastre um novo item no cardápio"}</h2>
                 <form className="input-container">
                     <Input label="title" value={title} updateValue={setTitle} />
                     <Input label="price" value={price} updateValue={setPrice} />
