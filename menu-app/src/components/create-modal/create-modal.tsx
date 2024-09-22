@@ -86,10 +86,13 @@ export function CreateModal({ closeModal, initialData, onUpdate }: ModalProps) {
                     <Input label="price" value={price} updateValue={setPrice} />
                     <Input label="image" value={image} updateValue={setImage} />
                 </form>
-                <button onClick={submit} className="btn-secondary">
-                    {isLoading ? "postando..." : "postar"}
-                </button>
+                <div className="button-container">
+                    <button onClick={submit} className="btn-secondary">
+                        {isLoading ? "postando..." : "postar"}
+                    </button>
+                </div>
             </div>
         </div>
     );
+    
 }

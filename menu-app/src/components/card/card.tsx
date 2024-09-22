@@ -15,8 +15,8 @@ export function Card({ price, image, title, onDelete, onEdit }: CardProps) {
             <h2>{title}</h2>
             <p><b>Preço: </b>{price}</p>
             <div className="card-buttons">
-                <button className="edit-button" onClick={onEdit}>E</button>
-                <button className="delete-button" onClick={onDelete}>X</button>
+                <button className="edit-button" onClick={onEdit}>Editar</button>
+                <button className="delete-button" onClick={onDelete}>Excluir</button>
             </div>
         </div>
     )

@@ -54,7 +54,7 @@ function App() {
         ))}
       </div>
         
-      {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
+      {isModalOpen && <CreateModal closeModal={handleOpenModal} initialData={null} />}
         
       <button onClick={handleOpenModal}>Adicionar</button>
     </div>

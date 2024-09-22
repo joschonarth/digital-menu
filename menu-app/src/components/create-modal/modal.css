@@ -1,78 +1,91 @@
 .modal-overlay {
     position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semitransparente */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 999;
 }
 
-.modal-overlay .modal-body {
-    position: relative; /* Para permitir o posicionamento do botão de fechar */
+.modal-body {
     background-color: #fff;
     padding: 24px;
-    height: 60%;
-    width: 60%;
+    width: 60%; /* Ocupa 60% da largura da tela */
+    max-width: 800px; /* Limite máximo de largura */
+    height: auto; /* Ajusta automaticamente a altura */
+    max-height: 80vh; /* Limita a altura para 80% da altura da tela */
     border-radius: 24px;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
+    position: relative; /* Necessário para o botão de fechar */
+    overflow: hidden; /* Evita que o conteúdo extrapole */
 }
 
-.modal-overlay .modal-body h2 {
+.modal-body h2 {
     font-size: 32px;
+    margin-bottom: 16px;
 }
 
-.modal-overlay .modal-body .input-container {
-    width: calc(100% - 24px);
+.input-container {
+    width: 100%; /* Ajusta o container do input para ocupar toda a largura */
 }
 
-.modal-overlay .modal-body input {
+.modal-body input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0, 0, 0, 0.9);
     font-size: 18px;
     line-height: 24px;
     border-radius: 12px;
-    width: 100%;
+    width: 100%; /* Ocupa toda a largura disponível */
     margin-bottom: 12px;
 }
 
-.modal-overlay .modal-body label {
+.modal-body label {
     color: #242424;
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 18px;
 }
 
-.modal-overlay .modal-body .btn-secondary {
-    position: initial;
+.button-container { 
+    display: flex;
+    justify-content: center;
+    margin-top: 16px; /* Espaço entre o botão e os inputs */
+}
+
+.btn-secondary {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #61ffca; /* Cor de fundo */
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     width: 100%;
-    margin-top: 32px;
 }
 
-.modal-overlay .modal-body .btn-secondary:hover {
-    background-color: #3a44f8;
-    transform: scale(1);
+.btn-secondary:hover {
+    background-color: #3a44f8; /* Cor de fundo ao passar o mouse */
 }
 
-/* Estilos para o botão de fechar */
 .close-button {
-    position: absolute;
+    position: fixed;
     top: 16px;
     right: 16px;
-    background: transparent; /* Fundo transparente */
-    border: none; /* Remove borda */
-    cursor: pointer; /* Cursor pointer para indicar que é clicável */
-    font-size: 20px; /* Tamanho do ícone */
-    color: #000; /* Cor do ícone */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
 }
 
 .close-button:hover {
-    color: #ff4c4c; /* Cor ao passar o mouse */
+    color: #ff4c4c;
 }
