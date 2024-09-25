@@ -3,6 +3,7 @@ import './App.css';
 import { Card } from './components/card/card';
 import { useFoodData } from './hooks/useFoodData';
 import { CreateModal } from './components/create-modal/create-modal';
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);

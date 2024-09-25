@@ -2,12 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 250px;
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 0;
-    position: relative; /* Para que os botões sejam posicionados em relação ao card */
+    position: relative;
+    overflow: hidden;
 }
 
 .card img {
@@ -16,35 +17,48 @@
     height: 200px;
 }
 
+.card-content {
+    padding: 16px;
+    text-align: center;
+}
+
+.card-price {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .card-buttons {
-    position: absolute; /* Posiciona os botões de forma absoluta */
-    top: 10px; /* Distância do topo */
-    width: 100%; /* Para que os botões se espalhem pela largura do card */
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between; /* Para posicionar os botões nas extremidades */
+    justify-content: space-between;
+    padding: 0 10px;
 }
 
 .edit-button,
 .delete-button {
-    background-color: #61ffca; /* Cor de fundo do botão de editar */
-    color: #000; /* Cor do texto */
+    background-color: #61ffca;
+    color: #000;
     border: none;
     border-radius: 5px;
-    padding: 6px 8px; /* Diminuindo o padding */
-    font-size: 14px; /* Diminui o tamanho da fonte */
+    padding: 6px 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .edit-button:hover {
-    background-color: #4ed3a1; /* Cor ao passar o mouse */
+    background-color: #4ed3a1;
 }
 
 .delete-button {
-    background-color: #ff4c4c; /* Cor de fundo do botão de deletar */
-    color: #fff; /* Cor do texto */
+    background-color: #ff4c4c;
+    color: #fff;
 }
 
 .delete-button:hover {
-    background-color: #e03e3e; /* Cor ao passar o mouse */
+    background-color: #e03e3e;
 }
